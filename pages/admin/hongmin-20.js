@@ -31,13 +31,13 @@ const Dashboard = (props) => {
   const [brands, setBrands] = useState(null);
 
   useEffect(() => {
-        console.log(hongminDb);
+       
 
   }, []);
 
   const restBrand = hongminDb.map((hongmin,k) =>
       <tr key={k+Math.random()}>
-        
+        <td>{k+1}</td>
         <td>{hongmin.date_at}</td>
         <td>{hongmin.name}</td>
         <td>ซื้อคูปอง</td>
@@ -82,6 +82,7 @@ const Dashboard = (props) => {
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
+                    <th scope="col">#</th>
                     <th scope="col">Date</th>
                     <th scope="col">Coupon Name</th>
                     <th scope="col">Action</th>
@@ -107,10 +108,10 @@ Dashboard.layout = Admin;
 Dashboard.getInitialProps = async ctx => {
    try {
   //   //const res = await axios.get('/api/restaurant-brand');
-     const restBrand = res.data;
-     return { restBrand };
+      const restName = {name:'Hongmin'}
+     return {restName};
    } catch (error) {
-     return { error };
+    return { error };
    }
 };
 
