@@ -105,13 +105,13 @@ const Dashboard = (props) => {
 Dashboard.layout = Admin;
 
 Dashboard.getInitialProps = async ctx => {
-  // try {
+   try {
   //   //const res = await axios.get('/api/restaurant-brand');
-  //   //const restBrand = res.data;
-  //   return { restBrand };
-  // } catch (error) {
-  //   return { error };
-  // }
+     const restBrand = res.data;
+     return { restBrand };
+   } catch (error) {
+     return { error };
+   }
 };
 
 export default Dashboard;

@@ -36,6 +36,7 @@ function Admin(props) {
           imgSrc: require("assets/img/brand/nextjs_argon_black.png"),
           imgAlt: "...",
         }}
+        
       />
       <div className="main-content" ref={mainContentRef}>
         <AdminNavbar {...props} brandText={getBrandText()} />

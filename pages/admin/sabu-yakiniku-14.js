@@ -104,13 +104,12 @@ const Dashboard = (props) => {
 Dashboard.layout = Admin;
 
 Dashboard.getInitialProps = async ctx => {
-  // try {
-  //   const res = await axios.get('/api/restaurant-brand');
-  //   const restBrand = res.data;
-  //   return { restBrand };
-  // } catch (error) {
-  //   return { error };
-  // }
+  try {
+    //   //const res = await axios.get('/api/restaurant-brand');
+        const restName = {name:'Sabu Yakiniku'}
+       return {restName};
+     } catch (error) {
+      return { error };
+     }
 };
-
 export default Dashboard;

@@ -54,6 +54,7 @@ function Sidebar(props) {
   const closeCollapse = () => {
     setCollapseOpen(false);
   };
+ 
   // creates the links that appear in the left menu / Sidebar
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
@@ -76,7 +77,7 @@ function Sidebar(props) {
   const { routes, logo } = props;
   let navbarBrand = (
     <NavbarBrand href="#pablo" className="pt-0">
-      Sabu Yakiniku
+      {props.children.props.restName.name}
     </NavbarBrand>
   );
   return (
