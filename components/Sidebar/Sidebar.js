@@ -77,7 +77,7 @@ function Sidebar(props) {
   const { routes, logo } = props;
   let navbarBrand = (
     <NavbarBrand href="#pablo" className="pt-0">
-      {props.children.props.restName.name}
+      {props.children.props.restName?props.children.props.restName.name:''}
     </NavbarBrand>
   );
   return (
