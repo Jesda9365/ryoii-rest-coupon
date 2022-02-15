@@ -38,8 +38,8 @@ const Dashboard = (props) => {
   const restBrand = moomuekkungDb.map((moomuekkung,k) =>
       <tr key={k+Math.random()}>
         <td>{k+1}</td>
-        <td>{hongmin.date_at}</td>
-        <td>{hongmin.name}</td>
+        <td>{moomuekkung.date_at}</td>
+        <td>{moomuekkung.name}</td>
         <td>ซื้อคูปอง</td>
         <td>-</td>
         <td>-</td>

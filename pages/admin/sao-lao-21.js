@@ -21,7 +21,7 @@ import Admin from "layouts/Admin.js";
 
 import axios from '../api/axios.config';
 
-import Header from "components/Headers/Header-saoLao.js";
+import Header from "components/Headers/Header-sao-lao.js";
 import {saoLaoDb} from '../../db/restCoupon.js';
 const Dashboard = (props) => {
   const [activeNav, setActiveNav] = React.useState(1);
@@ -38,8 +38,8 @@ const Dashboard = (props) => {
   const restBrand = saoLaoDb.map((saoLao,k) =>
       <tr key={k+Math.random()}>
         <td>{k+1}</td>
-        <td>{hongmin.date_at}</td>
-        <td>{hongmin.name}</td>
+        <td>{saoLao.date_at}</td>
+        <td>{saoLao.name}</td>
         <td>ซื้อคูปอง</td>
         <td>-</td>
         <td>-</td>
