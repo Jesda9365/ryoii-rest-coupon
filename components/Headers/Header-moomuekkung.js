@@ -69,7 +69,7 @@ function Header() {
                         >
                           คูปองที่ขายแล้ว
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">31</span>
+                        <span className="h2 font-weight-bold mb-0">34</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -91,7 +91,7 @@ function Header() {
                         >
                           คูปองที่ถูกใช้แล้ว
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">2</span>
+                        <span className="h2 font-weight-bold mb-0">3</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-info text-white rounded-circle shadow">
