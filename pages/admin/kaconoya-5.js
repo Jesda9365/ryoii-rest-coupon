@@ -22,7 +22,7 @@ import Admin from "layouts/Admin.js";
 import axios from '../api/axios.config';
 
 import Header from "components/Headers/Header-rest.js";
-import {sabuDb} from '../../db/restCoupon.js';
+import {couponDb} from '../../db/restCoupon.js';
 const Dashboard = (props) => {
   const [activeNav, setActiveNav] = React.useState(1);
   const [chartExample1Data, setChartExample1Data] = React.useState("data1");
@@ -31,10 +31,10 @@ const Dashboard = (props) => {
   const [brands, setBrands] = useState(null);
 
   useEffect(() => {
-        console.log(sabuDb);
+        console.log(couponDb);
   }, []);
 
-  const restBrand = sabuDb[0].member_coupon_list.map((coupon,k) =>
+  const restBrand = couponDb[0].member_coupon_list.map((coupon,k) =>
       <tr key={k+Math.random()}>
         <td>{k+1}</td>
         <td>{new Date(coupon.date_at).toLocaleDateString()}</td>
@@ -45,7 +45,7 @@ const Dashboard = (props) => {
   );
 
 
-  const couponUsed = sabuDb[0].member_coupon_use.map((couponUse,k) =>
+  const couponUsed = couponDb[0].member_coupon_use.map((couponUse,k) =>
   <tr key={k+Math.random()}>    
     <td>{k+1}</td>
     <td>{new Date(couponUse.used_date).toLocaleDateString()}</td>
@@ -65,7 +65,7 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <Header coupon={sabuDb} />
+      <Header coupon={couponDb} />
       {/* Page content */}
       <Container className="mt-7" fluid>
         
@@ -154,7 +154,7 @@ Dashboard.layout = Admin;
 Dashboard.getInitialProps = async ctx => {
   try {
     //   //const res = await axios.get('/api/restaurant-brand');
-        const restName = {name:sabuDb[0].brand_name}
+        const restName = {name:couponDb[0].brand_name}
        return {restName};
      } catch (error) {
       return { error };
