@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
-
+import { useSession,signOut } from "next-auth/react"
 // reactstrap components
 import {
   Button,
@@ -43,6 +43,9 @@ function Sidebar(props) {
   const router = useRouter();
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   // verifies if routeName is the one active (in browser input)
+
+  const { data: session } = useSession()
+
   const activeRoute = (routeName) => {
     return router.route.indexOf(routeName) > -1;
   };
@@ -57,10 +60,11 @@ function Sidebar(props) {
  
   // creates the links that appear in the left menu / Sidebar
   const createLinks = (routes) => {
+   
     return routes.map((prop, key) => {
       return (
-        <NavItem key={key} active={activeRoute(prop.layout + prop.path)}>
-          <Link href='#'>
+        <NavItem key={key} active={activeRoute(prop.layout + prop.path)}>         
+          <Link href={prop.path}>
             <NavLink
               href="#pablo"
               active={activeRoute(prop.layout + prop.path)}
@@ -74,10 +78,11 @@ function Sidebar(props) {
       );
     });
   };
+
   const { routes, logo } = props;
   let navbarBrand = (
-    <NavbarBrand href="#pablo" className="pt-0">
-      {props.children.props.restName?props.children.props.restName.name:''}
+    <NavbarBrand href="/" className="pt-0">
+      {session?session.user.brand_name:''}
     </NavbarBrand>
   );
   return (
@@ -87,7 +92,7 @@ function Sidebar(props) {
       id="sidenav-main"
     >
       <Container fluid>
-        {/* Toggler */}
+        
         <button
           className="navbar-toggler"
           type="button"
@@ -95,7 +100,7 @@ function Sidebar(props) {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        {/* Brand */}
+        
         {logo && logo.innerLink ? (
           <Link href='#'>
             <span>{navbarBrand}</span>
@@ -106,16 +111,13 @@ function Sidebar(props) {
             {navbarBrand}
           </a>
         ) : null}
-        {/* User */}
+       
         <Nav className="align-items-center d-md-none">          
           <UncontrolledDropdown nav>
             <DropdownToggle nav>
               <Media className="align-items-center">
                 <span className="avatar avatar-sm rounded-circle">
-                  <img
-                    alt="..."
-                    src={require("assets/img/theme/team-1-800x800.jpg")}
-                  />
+                <i className="fas fa-user"></i>
                 </span>
               </Media>
             </DropdownToggle>
@@ -136,7 +138,7 @@ function Sidebar(props) {
                 </DropdownItem>
               </Link>
               <DropdownItem divider />
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+              <DropdownItem href="#pablo" onClick={() => signOut()}>
                 <i className="ni ni-user-run" />
                 <span>Logout</span>
               </DropdownItem>
@@ -173,7 +175,7 @@ function Sidebar(props) {
               </Col>
             </Row>
           </div>
-          {/* Form */}
+        
           <Form className="mt-4 mb-3 d-md-none">
             <InputGroup className="input-group-rounded input-group-merge">
               <Input
@@ -189,31 +191,42 @@ function Sidebar(props) {
               </InputGroupAddon>
             </InputGroup>
           </Form>
-          {/* Navigation */}
-          <Nav navbar>{createLinks(routes)}</Nav>
-          {/* Divider */}
-          <hr className="my-3" />
-          {/* Heading */}         
-          {/* 
-           <h6 className="navbar-heading text-muted">Documentation</h6>
-          */}
-
-          {/* 
           <Nav className="mb-md-3" navbar>
             <NavItem>
-              <NavLink href="https://www.creative-tim.com/learning-lab/nextjs/overview/argon-dashboard?ref=njsad-admin-sidebar">
-                <i className="ni ni-spaceship" />
-                Getting started
+              <NavLink href="/restaurant-admin/dashboard">
+                <i className="ni ni-tv-2 text-primary" />
+                Dashboard
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://www.creative-tim.com/learning-lab/nextjs/avatar/argon-dashboard?ref=njsad-admin-sidebar">
-                <i className="ni ni-ui-04" />
-                Components
+              <NavLink href="/restaurant-admin/master-coupons">
+                <i className="ni ni-archive-2 text-primary" />
+                Master Coupon
               </NavLink>
             </NavItem>
-          </Nav>
-        */}
+            <NavItem>
+              <NavLink href="/restaurant-admin/restaurants">
+                <i className="ni ni-shop text-primary" />
+                Restaurant
+              </NavLink>
+            </NavItem>
+            {/* <NavItem>
+              <NavLink href="/restaurant-admin/restaurants">
+                <i className="ni ni-book-bookmark text-primary" />
+                Transactions
+              </NavLink>
+            </NavItem> */}
+            <NavItem>
+              <NavLink href="/restaurant-admin/profile">
+              <i className="fa fa-address-card text-primary"></i>
+                Profile
+              </NavLink>
+            </NavItem>
+          </Nav>          
+          {/* <hr className="my-3" />                      
+          <h6 className="navbar-heading text-muted">Admin</h6>          
+          <Nav navbar>{createLinks(routes)}</Nav> */}
+
 
         </Collapse>
       </Container>

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-// reactstrap components
+import { useSession,signOut } from "next-auth/react"
 import {
   DropdownMenu,
   DropdownItem,
@@ -19,9 +19,10 @@ import {
 } from "reactstrap";
 
 function AdminNavbar({ brandText }) {
+
   return (
     <>
-      <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
+      <Navbar className="navbar-top navbar-dark bg-dark" expand="md" id="navbar-main">
         <Container fluid>
           <Link href="#">
             <a className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">
@@ -45,10 +46,7 @@ function AdminNavbar({ brandText }) {
               <DropdownToggle className="pr-0" nav>
                 <Media className="align-items-center">
                   <span className="avatar avatar-sm rounded-circle">
-                    <img
-                      alt="..."
-                      src={require("assets/img/theme/team-4-800x800.jpg")}
-                    />
+                    <i className="fas fa-user"></i>
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
                     <span className="mb-0 text-sm font-weight-bold">
@@ -74,7 +72,7 @@ function AdminNavbar({ brandText }) {
                   </DropdownItem>
                 </Link>
                 <DropdownItem divider />
-                <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                <DropdownItem href="#pablo" onClick={() => signOut()}>
                   <i className="ni ni-user-run" />
                   <span>Logout</span>
                 </DropdownItem>

@@ -1,35 +1,71 @@
 var routes = [
   {
-    path: "#",
+    path: "/",
     name: "Dashboard",
     icon: "ni ni-tv-2 text-primary",
     layout: "#S",
   },
-  /*{
-    path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
+  {
+    path: "/admin/brand-restaurants",
+    name: "Brand Restaurant",
+    icon: "ni ni-badge text-primary",
     layout: "/admin",
   },
   {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    layout: "/admin",
-  },*/
-  // {
-  //   path: "/profile",
-  //   name: "User Profile",
-  //   icon: "ni ni-single-02 text-yellow",
-  //   layout: "/admin",
-  // },
-  /*{
-    path: "/tables",
-    name: "Tables",
-    icon: "ni ni-bullet-list-67 text-red",
+    path: "/admin/restaurants",
+    name: "Restaurants",
+    icon: "ni ni-shop text-primary",
     layout: "/admin",
   },
   {
+    path: "/admin/master-coupons",
+    name: "Master Coupon",
+    icon: "ni ni-archive-2 text-primary",
+    layout: "/admin",
+  },  
+  {
+    path: "/admin/coupons",
+    name: "Coupons",
+    icon: "ni ni-bullet-list-67 text-primary",
+    layout: "/admin",
+  },
+  {
+    path: "#",
+    name: "Coupon Alarm",
+    icon: "fa fa-bell text-danger",
+    layout: "/admin",
+  },
+  {
+    path: "#",
+    name: "Transactions",
+    icon: "ni ni-book-bookmark text-primary",
+    layout: "/admin",
+  },
+  {
+    path: "/admin/users",
+    name: "Member",
+    icon: "fa fa-address-book text-primary",
+    layout: "/admin",
+  },
+  {
+    path: "/admin/users",
+    name: "Restaurant User",
+    icon: "fa fa-users text-primary",
+    layout: "/admin",
+  },
+  {
+    path: "/admin/users",
+    name: "Admin User",
+    icon: "fa fa-user-circle text-primary",
+    layout: "/admin",
+  },
+  {
+    path: "#",
+    name: "Settings",
+    icon: "ni ni-settings text-primary",
+    layout: "/admin",
+  },
+  /*{
     path: "/login",
     name: "Login",
     icon: "ni ni-key-25 text-info",
