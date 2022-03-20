@@ -32,7 +32,10 @@ export default NextAuth({
         }
       })
   ],
-  NEXTAUTH_URL:'http://rest-coupon.ryoii.io',
+  pages: {
+    signIn: '/auth/signin',
+  },
+  NEXTAUTH_URL:'http://rest-coupon.ryoii.io/api/auth',
   NEXTAUTH_URL_INTERNAL:'http://10.130.0.14',
   secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=",
   callbacks: {
