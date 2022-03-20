@@ -36,7 +36,7 @@ export default NextAuth({
     signIn: '/auth/signin',
   },
   NEXTAUTH_URL:'http://rest-coupon.ryoii.io/api/auth',
-  NEXTAUTH_URL_INTERNAL:'http://10.130.0.14',
+  NEXTAUTH_URL_INTERNAL:'http://128.199.114.169',
   secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=",
   callbacks: {
     async jwt({ token, user, account }) {
