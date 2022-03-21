@@ -18,10 +18,10 @@ module.exports = withFonts(
             },
           });
           config.resolve.modules.push(path.resolve("./"));
-          config.module.env.push({            
-              NEXTAUTH_URL: 'http://rest-coupon.ryoii.io',          
-          });
+        
           return config;
+        },env: {
+          NEXTAUTH_URL: "http://rest-coupon.ryoii.io",
         },
       })
     )
