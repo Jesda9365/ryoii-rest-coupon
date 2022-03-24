@@ -51,6 +51,7 @@
 import React from "react";
 import Router from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react"
+import { url_web } from "../config/app";
 
 export default function Index() {
   const { data: session,status } = useSession()
@@ -59,7 +60,7 @@ export default function Index() {
   React.useEffect(() => {
     console.log(process.env.NEXTAUTH_URL);
     if (session) {
-     Router.push("/restaurant-admin/dashboard");
+     Router.push(url_web+"/restaurant-admin/dashboard");
       return (
         <>
           Signed in as {session.user.brand_name} <br />
