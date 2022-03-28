@@ -53,6 +53,8 @@ import Router from "next/router";
 import { useSession, signIn, signOut } from "next-auth/react"
 import { url_web } from "../config/app";
 
+
+
 export default function Index() {
   const { data: session,status } = useSession()
   const loading = status === "loading"
