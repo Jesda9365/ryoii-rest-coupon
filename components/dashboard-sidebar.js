@@ -41,11 +41,7 @@ const items = [
     icon: (<UserIcon fontSize="small" />),
     title: 'Profile'
   },
-  {
-    href: '/restaurant-admin/profile',
-    icon: (<UserIcon fontSize="small" />),
-    title: 'Profile'
-  },
+
   // {
   //   href: '/settings',
   //   icon: (<CogIcon fontSize="small" />),
