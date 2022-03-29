@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Divider, Drawer, Typography, useMediaQuery  } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
@@ -17,6 +17,8 @@ import { Logo } from './logo';
 import { NavItem } from './nav-item';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { signOut } from "next-auth/react"
 
 const items = [
   {
@@ -33,6 +35,11 @@ const items = [
     href: '/restaurant-admin/restaurants',
     icon: (<FoodBankIcon fontSize="small" />),
     title: 'Restaurant'
+  },
+  {
+    href: '/restaurant-admin/profile',
+    icon: (<UserIcon fontSize="small" />),
+    title: 'Profile'
   },
   {
     href: '/restaurant-admin/profile',
@@ -125,6 +132,7 @@ export const DashboardSidebar = (props) => {
               title={item.title}
             />
           ))}
+         <Box style={{textAlign:'center',width:'100%'}}><Button onClick={signOut}>Logout</Button></Box>
         </Box>
         <Divider sx={{ borderColor: '#2D3748' }} />
 
