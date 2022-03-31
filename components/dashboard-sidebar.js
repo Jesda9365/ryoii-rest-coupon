@@ -18,8 +18,7 @@ import { NavItem } from './nav-item';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { signOut } from "next-auth/react"
-
+import { useSession,signOut } from "next-auth/react"
 const items = [
   {
     href: '/',
@@ -27,7 +26,7 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/restaurant-admin/master-coupon',
+    href: '/restaurant-admin/master-coupons',
     icon: (<CardGiftcardIcon fontSize="small" />),
     title: 'Master Coupons'
   },
@@ -72,6 +71,8 @@ export const DashboardSidebar = (props) => {
     noSsr: false
   });
 
+  const { data: session } = useSession()
+
   useEffect(
     () => {
       if (!router.isReady) {
@@ -96,19 +97,14 @@ export const DashboardSidebar = (props) => {
         }}
       >
         <div>
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ pt: 3 }} style={{textAlign:'center'}}>
             <NextLink
               href="/"
               passHref
             >
-              <a>
-                <Logo
-                  sx={{
-                    height: 42,
-                    width: 42
-                  }}
-                />
-              </a>
+              <Button style={{color:'#fff',fontSize:'1.5rem'}}>
+              {session?session.user.brand_name:''}
+              </Button>
             </NextLink>
           </Box>
           

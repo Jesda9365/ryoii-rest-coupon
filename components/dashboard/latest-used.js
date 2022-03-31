@@ -37,8 +37,8 @@ return (
   <Card>
   {console.log(props)}
   <CardHeader title="รายการใช้คูปอง" />
-  <PerfectScrollbar style={{maxHeight:'800px',overflow:'auto'}}>
-    <Box sx={{ minWidth: 800 }}>
+  <PerfectScrollbar>
+    <Box style={{overflow:'auto',maxHeight:'800px'}}>
       <Table>
         <TableHead style={{position:'sticky',top:'0'}}>
           <TableRow>
