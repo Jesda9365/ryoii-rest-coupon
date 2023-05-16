@@ -583,5 +583,31 @@ export const userBrand = [
 		"updated_at" : "2023-03-08 06:32:45",
 		"rest_brand_code" : "HOSHI",
 		"code_id" : "HOSHI-45"
+	},
+	{
+		"brand_id" : 46,
+		"chain_id" : 46,
+		"brand_name" : "NICO NICO",
+		"description" : "NICO NICO ร้าน Brunch ย่านทองหล่อ ผสมกลิ่นอายความเป็นญี่ปุ่น",
+		"status" : 1,
+		"create_user" : 0,
+		"update_user" : 0,
+		"created_at" : "2023-03-27 05:06:58",
+		"updated_at" : "2023-03-27 05:06:58",
+		"rest_brand_code" : "NICO",
+		"code_id" : "NICO-46"
+	},
+	{
+		"brand_id" : 47,
+		"chain_id" : 47,
+		"brand_name" : "Neta Grill",
+		"description" : "ความอร่อยใหม่สไตล์ญี่ปุ่น Hamayaki อาหารทะเลสดใหม่ & Yakiniku เนื้อย่างเตาถ่าน",
+		"status" : 1,
+		"create_user" : 0,
+		"update_user" : 0,
+		"created_at" : "2023-04-09 05:06:58",
+		"updated_at" : "2023-04-09 05:06:58",
+		"rest_brand_code" : "NETA",
+		"code_id" : "NETA-47"
 	}
 ];
